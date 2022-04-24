@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+<div>
+
+<div>
+    <div>
+        <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fdownload_121199.svg&imgrefurl=https%3A%2F%2Fwww.onlinewebfonts.com%2Ficon%2F121199&tbnid=m2Y-Cp8pQK976M&vet=12ahUKEwiqwcSE-6z3AhXuCJ0JHckJA5MQMygCegUIARC8AQ..i&docid=OQQiZtBA85k5uM&w=800&h=800&q=login%20img&ved=2ahUKEwiqwcSE-6z3AhXuCJ0JHckJA5MQMygCegUIARC8AQ" />
+    </div>
+     <div class="form-group">
+    <label for="exampleInputEmail1">Usuario</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted"></small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Contraseña</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+ 
+    <input type="button" class="btn btn-block btn btn-primary"
+             onclick="Login()"
+           value="Entrar" />
+
+</div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script>
+    
+    function Login(){
+      var user=$("#exampleInputEmail1").val();
+      var pas=$("#exampleInputPassword1").val();
+
+      var user2=document.getElementById("exampleInputEmail1").value;
+      var pass=document.getElementById("exampleInputPassword1").value;
+
+      $.get("Account/login/?user="+user2+"&contrasena="+pass,function(data){
+          if(data==""){
+              alert("Usuario o contraseña incorrecto");
+          }else{
+             alert("OK");
+             document.location.href="Home";
+          }
+
+      })
+
+
+        //exampleInputEmail1
+    }
+
+</script>
